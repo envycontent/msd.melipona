@@ -1,0 +1,215 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="msd.melipona">
+
+  <!-- 'melipona' Zope 3 browser layer -->
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="melipona"
+      />
+  
+  <!-- Viewlets registration -->
+     <browser:viewletManager
+        name="melipona.portaltop"
+        provides="plone.app.layout.viewlets.interfaces.IPortalTop"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+
+    <browser:viewletManager
+        name="melipona.portalheader"
+        provides="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+     <browser:viewletManager
+        name="melipona.portalfooter"
+        provides="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+        
+     <browser:viewletManager
+        name="melipona.belowfooter"
+        provides=".interfaces.IBelowFooter"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+
+     <browser:viewlet  
+      name="plone.analytics"
+      manager=".interfaces.IBelowFooter"
+      class="plone.app.layout.analytics.view.AnalyticsViewlet"
+      permission="zope2.View" 
+      />
+
+
+    <!-- The skip links for accessibility -->
+    <browser:viewlet
+        name="plone.skip_links"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.SkipLinksViewlet"
+        template="templates/skip_links.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- The site actions -->
+    <browser:viewlet
+        name="plone.site_actions"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.SiteActionsViewlet"
+        template="templates/site_actions.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- The search box -->
+    <browser:viewlet
+        name="plone.searchbox"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.SearchBoxViewlet"
+        template="templates/searchbox.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- The logo -->
+    <browser:viewlet
+        name="plone.logo"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.LogoViewlet"
+        template="templates/logo.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- The global sections -->
+    <browser:viewlet
+        name="plone.global_sections"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.GlobalSectionsViewlet"
+        template="templates/sections.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- The personal bar -->
+    <browser:viewlet
+        name="plone.personal_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.PersonalBarViewlet"
+        template="templates/personal_bar.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- The breadcrumbs -->
+    <browser:viewlet
+        name="plone.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.PathBarViewlet"
+        template="templates/path_bar.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+        
+    <browser:viewlet
+        name="plone.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        for="msd.melipona.interfaces.melipona.IHasNoBreadcrumbs"
+        class="plone.app.layout.viewlets.common.PathBarViewlet"
+        template="templates/empty_path_bar.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+    
+
+
+    <!-- Render the document actions -->
+    <browser:viewlet
+        name="plone.abovecontenttitle.documentactions"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class="plone.app.layout.viewlets.content.DocumentActionsViewlet"
+        template="templates/document_actions.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- Render the document byline -->
+    <browser:viewlet
+        name="plone.belowcontenttitle.documentbyline"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class="plone.app.layout.viewlets.content.DocumentBylineViewlet"
+        template="templates/document_byline.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- Render the keywords -->
+    <browser:viewlet
+        name="plone.belowcontenttitle.keywords"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        template="templates/keywords.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+
+    <!-- Render table of contents -->
+    <browser:viewlet
+        name="plone.tableofcontents"
+        for="Products.ATContentTypes.interface.IATDocument"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        class="plone.app.layout.viewlets.common.TableOfContentsViewlet"
+        template="templates/toc.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+        
+    <!-- Footer -->
+    <browser:viewlet
+        name="plone.footer"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="templates/footer.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope.Public"
+        />
+        
+    <!-- Colophon -->
+    <browser:viewlet
+        name="plone.colophon"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="templates/colophon.pt"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope.Public"
+        />
+
+ 
+
+    <include package="plone.app.portlets"  />
+
+    <plone:portletRenderer
+      portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+      class=".navigation.NavigationPortlet"
+      layer=".interfaces.IThemeSpecific"
+      />
+      
+    <!-- register the layout view -->
+    
+    <browser:page
+        name="melipona_layout"
+        for="*"
+        permission="zope.Public"
+        class=".layout.MeliponaLayoutPolicy"
+        allowed_interface=".interfaces.IMeliponaLayoutPolicy"
+        />
+    
+
+
+</configure>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<object name="portal_css" meta_type="Stylesheets Registry">
+ <stylesheet enabled="False"
+    id="member.css"
+    />
+  <stylesheet enabled="False" 
+    id="base.css" 
+    />
+ <stylesheet enabled="False"
+    id="public.css" 
+    />
+ <stylesheet enabled="False"
+    id="columns.css" 
+    />
+ <stylesheet enabled="False"
+    id="portlets.css" 
+    />
+ <stylesheet enabled="False"
+    id="controlpanel.css"
+    />
+ <stylesheet enabled="False"
+    id="print.css" 
+    />
+ <stylesheet enabled="False"
+    id="mobile.css" 
+    />
+ <stylesheet enabled="False"
+    id="deprecated.css"
+    />
+ <stylesheet enabled="False"
+    id="navtree.css" 
+    />
+ <stylesheet enabled="False"
+    id="invisibles.css" 
+    />
+ <stylesheet enabled="False"
+    id="ploneKss.css" 
+    />
+ <stylesheet enabled="False"
+    id="RTL.css" 
+    />
+</object>

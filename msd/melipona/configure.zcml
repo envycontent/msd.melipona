@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    i18n_domain="msd.melipona">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <include package=".browser" />
+  <include file="skins.zcml" />
+  <include file="profiles.zcml" />
+  <include package="collective.monkeypatcher" file="meta.zcml" />
+  
+  <interface interface="msd.melipona.interfaces.melipona.IHasNoBreadcrumbs" />
+  
+  <monkey:patch
+     class="Products.CMFPlone.FactoryTool.FactoryTool"
+     original="_fixRequest"
+     replacement=".patches.portalFactoryPatch._fixRequest"
+     docstringWarning="false"
+     />
+  
+
+</configure>

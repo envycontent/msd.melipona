@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object>
+  <hidden manager="plone.abovecontent" skinname="melipona">
+    <viewlet name="plone.path_bar" />
+  </hidden>
+  <hidden manager="plone.belowcontent" skinname="melipona">
+    <viewlet name="plone.belowcontenttitle.keywords" />
+  </hidden>
+  <hidden manager="melipona.portalfooter" skinname="melipona">
+    <viewlet name="plone.site_actions" />
+    <viewlet name="plone.analytics" />    
+  </hidden>
+</object>

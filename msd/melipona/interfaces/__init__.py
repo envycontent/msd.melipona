@@ -1,0 +1,1 @@
+from melipona import IHasNoBreadcrumbs

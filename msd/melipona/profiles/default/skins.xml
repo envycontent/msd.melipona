@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="melipona">
+
+ 
+ <object name="msd_melipona_templates"
+    meta_type="Filesystem Directory View"
+    directory="msd.melipona:skins/msd_melipona_templates"/>
+ 
+
+ <skin-path name="melipona" based-on="Plone Default">
+  <layer name="msd_melipona_templates"
+     insert-after="custom"/>
+  <layer name="classic_styles"
+      insert-after="msd_melipona_templates" />
+  <layer name="classic_ecmascript"
+      insert-after="classic_styles" />
+ </skin-path>
+
+</object>
